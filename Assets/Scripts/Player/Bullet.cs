@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * moveSpeed;
+        float y = Random.Range(-0.2f, 0.2f);
+
+        rb.velocity = transform.right * moveSpeed + y * transform.up;
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Bullet
   - Ladder
+  - Body
   layers:
   - Default
   - TransparentFX
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bullet
+    uniqueID: 3072640161
     locked: 0

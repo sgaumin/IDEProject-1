@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class PlayerCommands : MonoBehaviour {
 
@@ -15,20 +16,31 @@ public class PlayerCommands : MonoBehaviour {
 
     [Space(10)]
     public GameObject bullet;
+    public GameObject cartouche;
     public Transform shootPoint;
+    public Transform cartouchePoint;
+    public float kickback;
     public float reloadTime;
 
     [Space(10)]
     public GameObject hitBox;
     public float hitWait;
 
+    [Space(10)]
+    public PullBody pullBox;
+    public float pullSpeedFactor = 0.5f;
+
     private bool canPaper = true;
     private bool canShoot = true;
     private bool canHit = true;
+    private PlayerMovement playerMove;
+    private Rigidbody2D rb;
 
     private List<GameObject> listWalls;
     // Use this for initialization
     void Start () {
+        rb = GetComponent<Rigidbody2D>();
+
         if (hitBox != null)
         {
             hitBox.SetActive(false);
@@ -66,8 +78,16 @@ public class PlayerCommands : MonoBehaviour {
     IEnumerator Shoot()
     {
         canShoot = false;
-        GameObject bulletLaunched;
-        bulletLaunched = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+        //GameObject bulletLaunched;
+        //bulletLaunched = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+        Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+        Instantiate(cartouche, cartouchePoint.position, cartouchePoint.rotation);
+
+        // Recul sur le Player
+        rb.AddForce(-transform.right * kickback);
+
+        // Effet de Camera
+        CameraShaker.Instance.ShakeOnce(2f, 5f, .1f, 1f);
 
         yield return new WaitForSeconds(reloadTime);
         canShoot = true;
@@ -88,6 +108,7 @@ public class PlayerCommands : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Building"))
         {
+            //Debug.Log("building");
             if (Input.GetKeyDown(KeyCode.Return) && nbtool > 0 && level == 1 && canPaper)
             {
                 foreach (GameObject wall in listWalls)

@@ -7,11 +7,6 @@ public class CineMode : MonoBehaviour {
 
     public Animator anim;
 
-	// Use this for initialization
-	void Start () {
-        anim = GetComponent<Animator>();
-    }
-
     public void LaunchCineMode()
     {
         anim.SetBool("CineMode", true);
