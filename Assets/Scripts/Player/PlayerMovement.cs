@@ -24,24 +24,25 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        // Horizontal movements
-        Vector3 inputs = new Vector3(Input.GetAxisRaw("Horizontal"), 0);
-        if (Input.GetAxisRaw("Horizontal") > 0 && !facingRight)
+        if (GameManager.instance.gameState == GameManager.gameStates.Playing) 
         {
-            Flip();
+            // Horizontal movements
+            Vector3 inputs = new Vector3(Input.GetAxisRaw("Horizontal"), 0);
+            if (Input.GetAxisRaw("Horizontal") > 0 && !facingRight)     
+            {
+                Flip();
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0 && facingRight)
+            {
+                Flip();
+            }
+            rb.AddForce(inputs * moveSpeed);
+            //Debug.Log(grounded);
+            if (Input.GetKeyDown(KeyCode.Space)&&grounded)
+            {
+                Jump();
+            }
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0 && facingRight)
-        {
-            Flip();
-        }
-        rb.AddForce(inputs * moveSpeed);
-        Debug.Log(grounded);
-        if (Input.GetKeyDown(KeyCode.Space)&&grounded) //todo attendre de toucher le sol
-        {
-            Jump();
-        }
-        
     }
 
     // Pivot the player according to his direction
@@ -67,5 +68,4 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
         }
     }
-
 }

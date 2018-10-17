@@ -40,7 +40,7 @@ public class DialoguesManager : MonoBehaviour {
     {
         if (GameManager.instance.gameState == GameManager.gameStates.Dialogue)
         {
-            if (Input.anyKey)
+            if (Input.anyKeyDown)
             {
                 DisplayNextSentence();
             }
