@@ -12,6 +12,7 @@ public class DialoguesManager : MonoBehaviour {
     public Text dialogueText;
 
     private Queue<string> sentences;
+    private CineMode cine;
 
     void Awake()
     {
@@ -33,6 +34,7 @@ public class DialoguesManager : MonoBehaviour {
             dialogueUI.SetActive(false);
         }
 
+        cine = GetComponent<CineMode>();
         sentences = new Queue<string>();
     }
 
@@ -50,6 +52,9 @@ public class DialoguesManager : MonoBehaviour {
     public void StartDialogue(Dialogue dialogue)
     {
         GameManager.instance.gameState = GameManager.gameStates.Dialogue;
+
+        // Active le mode cinema
+        cine.LaunchCineMode();
 
         sentences.Clear();
 
@@ -91,5 +96,8 @@ public class DialoguesManager : MonoBehaviour {
     public void EndDialogue() {
         GameManager.instance.gameState = GameManager.gameStates.Playing;
         dialogueUI.SetActive(false);
+
+        // Active le mode cinema
+        cine.QuitCineMode();
     }
 }
