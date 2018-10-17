@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-    public class GameManager : MonoBehaviour
-    {
+public class GameManager : MonoBehaviour
+{
         public static GameManager instance = null;
 
         public enum gameStates {Playing, Dialogue, Pause, End};
@@ -24,19 +24,42 @@ using UnityEngine.SceneManagement;
             }
         }
 
-        public void LoadScene(string scene)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
+    public void LoadScene(string scene)
         {
             SceneManager.LoadScene(scene);
         }
 
-        public void ReloagScene()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+    public void ReloagScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
-        public void QuitGame()
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    private void Pause()
+    {
+        if (gameState != gameStates.Pause)
         {
-            Application.Quit();
+            gameState = gameStates.Pause;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            gameState = gameStates.Playing;
+            Time.timeScale = 1;
         }
     }
+
+}
 
