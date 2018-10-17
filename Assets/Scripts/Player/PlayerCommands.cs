@@ -87,7 +87,7 @@ public class PlayerCommands : MonoBehaviour {
         rb.AddForce(-transform.right * kickback);
 
         // Effet de Camera
-        CameraShaker.Instance.ShakeOnce(2f, 5f, .1f, 1f);
+        CameraShaker.Instance.ShakeOnce(1f, 5f, .1f, 1f);
 
         yield return new WaitForSeconds(reloadTime);
         canShoot = true;
