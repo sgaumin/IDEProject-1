@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   jumpForce: 10
+  ladderSpeed: 5.2
 --- !u!212 &212258936721504136
 SpriteRenderer:
   m_ObjectHideFlags: 1

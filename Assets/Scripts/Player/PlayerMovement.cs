@@ -6,8 +6,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [Header("Player Settings")] public float moveSpeed;
+    [Header("Player Settings")]
+    public float moveSpeed;
     public float jumpForce;
+    public float ladderSpeed;
 
     private Rigidbody2D rb;
     private bool grounded;
@@ -69,9 +71,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!grounded)
+        if (collision.CompareTag("Ground") && !grounded)
         {
             grounded = true;
+        }
+
+        if (collision.CompareTag("Ladder"))
+        {
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                rb.AddForce(transform.up * Input.GetAxisRaw("Vertical") * ladderSpeed);
+            }
         }
     }
 }
