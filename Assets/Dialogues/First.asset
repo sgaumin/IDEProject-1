@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d66ef848dc2b343add44c4cb23b488, type: 3}
+  m_Name: First
+  m_EditorClassIdentifier: 
+  name: Mentor
+  sentences:
+  - Bienvenue chez les "Black Lives Club".
+  - "Nous devons d\xE9fendre notre communaut\xE9 contre lla violence des \"Autre Gang\"."
+  - Avant de devenir un membre permanent des BLACK, tu vas devoir prouver ta valeur.
+  - Place le plus d'affiches possible dans cette rue.
+  - Attends ! Selon nos informations, une patrouille de police devrait arriver d'ici
+    2 minutes.
+  - "Monte dans la voiture quand tu es pr\xEAt."
