@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : MonoBehaviour {
+public class Bullet : MonoBehaviour {
 
     public float moveSpeed;
-
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
