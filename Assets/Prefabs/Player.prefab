@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4026941427827000}
   - component: {fileID: 212258936721504136}
   - component: {fileID: 61848112045725402}
+  - component: {fileID: 114851924549495360}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -270,7 +271,7 @@ MonoBehaviour:
   shootPoint: {fileID: 4879065993001868}
   reloadTime: 0.2
   hitBox: {fileID: 1977918490410418}
-  hitWait: 1
+  hitWait: 0.2
 --- !u!114 &114259071691515850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,6 +286,17 @@ MonoBehaviour:
   moveSpeed: 6
   jumpForce: 10
   ladderSpeed: 5.2
+--- !u!114 &114851924549495360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1977918490410418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf4d3a27874c4545b550bc6733835ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212258936721504136
 SpriteRenderer:
   m_ObjectHideFlags: 1
