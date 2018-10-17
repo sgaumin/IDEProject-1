@@ -11,7 +11,7 @@ public class PullBody : MonoBehaviour {
     {
         if (collision.CompareTag("Body") && Input.GetKeyDown(KeyCode.C))
         {
-            Debug.Log("Body");
+            Debug.Log("Body"); 
             isNearBody = true;
             collision.gameObject.transform.parent = transform;
         }

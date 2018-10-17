@@ -17,6 +17,7 @@ public class PlayerCommands : MonoBehaviour {
     [Space(10)]
     public GameObject bullet;
     public GameObject cartouche;
+    public GameObject explosion;
     public Transform shootPoint;
     public Transform cartouchePoint;
     public float kickback;
@@ -83,11 +84,15 @@ public class PlayerCommands : MonoBehaviour {
         Instantiate(bullet, shootPoint.position, shootPoint.rotation);
         Instantiate(cartouche, cartouchePoint.position, cartouchePoint.rotation);
 
+        explosion.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        explosion.SetActive(false);
+
         // Recul sur le Player
         rb.AddForce(-transform.right * kickback);
 
         // Effet de Camera
-        CameraShaker.Instance.ShakeOnce(1f, 5f, .1f, 1f);
+        CameraShaker.Instance.ShakeOnce(1f, 3f, .1f, 1f);
 
         yield return new WaitForSeconds(reloadTime);
         canShoot = true;

@@ -14,13 +14,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool grounded;
     private bool facingRight = true;
-    private Collider2D collider;
+    //private Collider2D collider;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        //collider = GetComponent<Collider2D>();
         grounded = true;
     }
 
