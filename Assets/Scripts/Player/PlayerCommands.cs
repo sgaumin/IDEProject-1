@@ -8,6 +8,11 @@ public class PlayerCommands : MonoBehaviour {
     public GameObject paper;
     public float paperWait;
 
+    public int level = 1;
+
+    public GameObject tool;
+    public int nbtool = 1;
+
     [Space(10)]
     public GameObject hitBox;
     public float hitWait;
@@ -29,6 +34,11 @@ public class PlayerCommands : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             StartCoroutine(Hit());
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && nbtool > 0 && level == 1)
+        {
+            Instantiate(tool, new Vector3(transform.position.x + 1, transform.position.y, 1), Quaternion.identity);
+            nbtool--;
         }
     }
 
