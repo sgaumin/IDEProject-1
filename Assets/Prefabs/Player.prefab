@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750944267396474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.198, y: 0.383, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 4672142171288786}
@@ -228,12 +228,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1750944267396474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7d5f87888b0cb43a97804f37f16ff7, type: 3}
+  m_Script: {fileID: 11500000, guid: 78a29791681ea7b4bab2a00fd03f0a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tool: {fileID: 0}
+  tool: {fileID: 1537891718958434, guid: 9037b579fb3fd5545ac4fcb6d8818792, type: 2}
   level: 1
-  nbtool: 1
+  nbtool: 10
   paper: {fileID: 1537891718958434, guid: 9037b579fb3fd5545ac4fcb6d8818792, type: 2}
   paperWait: 1
   bullet: {fileID: 1967098239365892, guid: 7240a075bce632046b2c3ab77e7d74a5, type: 2}
@@ -249,11 +249,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1750944267396474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 190936fac3aed4948b65fe20a6ca193c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cf3ede39e484fa4da562c9724732485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 100
+  jumpForce: 120
 --- !u!212 &212034304771679594
 SpriteRenderer:
   m_ObjectHideFlags: 1

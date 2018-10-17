@@ -26,12 +26,14 @@ public class PlayerCommands : MonoBehaviour {
     private bool canShoot = true;
     private bool canHit = true;
 
+    private List<GameObject> listWalls;
     // Use this for initialization
     void Start () {
         if (hitBox != null)
         {
             hitBox.SetActive(false);
         }
+        listWalls = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -47,11 +49,11 @@ public class PlayerCommands : MonoBehaviour {
             StartCoroutine(Shoot());
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) && nbtool > 0 && level == 1)
-        {
-            Instantiate(tool, new Vector3(transform.position.x + 1, transform.position.y, 1), Quaternion.identity);
-            nbtool--;
-        }
+        //if (Input.GetKeyDown(KeyCode.Return) && nbtool > 0 && level == 1)
+        //{
+        //    Instantiate(tool, new Vector3(transform.position.x + 1, transform.position.y, 1), Quaternion.identity);
+        //    nbtool--;
+        //}
     }
 
     IEnumerator PlacePaper()
@@ -86,10 +88,25 @@ public class PlayerCommands : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Building"))
         {
-            if (Input.GetKeyDown(KeyCode.E) && canPaper)
+            Debug.Log("building");
+            if (Input.GetKeyDown(KeyCode.Return) && nbtool > 0 && level == 1 && canPaper)
             {
-                Instantiate(paper, transform.position, Quaternion.identity);
+                foreach (GameObject wall in listWalls)
+                {
+                    if (wall == collision.gameObject)
+                    {
+                        //Mur déjà utilisé
+                        return;
+                    }
+
+                }
+
+                Instantiate(tool, new Vector3(hitBox.transform.position.x, transform.position.y, 1), Quaternion.identity);
+                listWalls.Add(collision.gameObject);
                 StartCoroutine(PlacePaper());
+                nbtool--;
+                collision.gameObject.SetActive(false);
+                
             }
         }
     }
