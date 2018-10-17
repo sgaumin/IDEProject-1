@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DealDamage : MonoBehaviour {
 
@@ -11,6 +9,11 @@ public class DealDamage : MonoBehaviour {
         if (collision.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
+
+            if (gameObject.CompareTag("Bullet"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
