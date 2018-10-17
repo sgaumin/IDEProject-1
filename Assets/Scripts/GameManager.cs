@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace White
-{
+
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance = null;
 
-        public enum gameStates {Playing, End, Pause};
+        public enum gameStates {Playing, Dialogue, Pause, End};
         public gameStates gameState = gameStates.Playing;
 
         void Awake()
@@ -39,6 +38,5 @@ namespace White
         {
             Application.Quit();
         }
-
     }
-}
+

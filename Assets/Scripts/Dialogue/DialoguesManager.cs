@@ -36,8 +36,20 @@ public class DialoguesManager : MonoBehaviour {
         sentences = new Queue<string>();
     }
 
+    private void Update()
+    {
+        if (GameManager.instance.gameState == GameManager.gameStates.Dialogue)
+        {
+            if (Input.anyKey)
+            {
+                DisplayNextSentence();
+            }
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
+        GameManager.instance.gameState = GameManager.gameStates.Dialogue;
 
         sentences.Clear();
 
@@ -76,7 +88,8 @@ public class DialoguesManager : MonoBehaviour {
         }
     }
 
-    void EndDialogue() {
+    public void EndDialogue() {
+        GameManager.instance.gameState = GameManager.gameStates.Playing;
         dialogueUI.SetActive(false);
     }
 }
