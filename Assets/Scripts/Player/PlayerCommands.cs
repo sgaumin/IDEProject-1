@@ -88,7 +88,6 @@ public class PlayerCommands : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Building"))
         {
-            Debug.Log("building");
             if (Input.GetKeyDown(KeyCode.Return) && nbtool > 0 && level == 1 && canPaper)
             {
                 foreach (GameObject wall in listWalls)
