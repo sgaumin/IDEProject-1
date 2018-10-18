@@ -7,11 +7,18 @@ public class DialoguesManager : MonoBehaviour {
 
     public static DialoguesManager instance = null;
 
+    [Header("UI")]
     public GameObject dialogueUI;
     public Text nameText;
     public Text dialogueText;
 
+    [Header("Sounds")]
+    public AudioSource voiceSound;
+    public AudioSource bipSound;
+
     private Queue<string> sentences;
+    private Queue<AudioClip> voices;
+
     private CineMode cine;
 
     void Awake()
@@ -35,7 +42,9 @@ public class DialoguesManager : MonoBehaviour {
         }
 
         cine = GetComponent<CineMode>();
+
         sentences = new Queue<string>();
+        voices = new Queue<AudioClip>();
     }
 
     private void Update()
@@ -57,11 +66,17 @@ public class DialoguesManager : MonoBehaviour {
         cine.LaunchCineMode();
 
         sentences.Clear();
+        voices.Clear();
 
         nameText.text = dialogue.name;
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
+        }
+
+        foreach (AudioClip voice in voices)
+        {
+            voices.Enqueue(voice);
         }
 
         DisplayNextSentence();
@@ -78,6 +93,10 @@ public class DialoguesManager : MonoBehaviour {
         }
 
         string sentence = sentences.Dequeue();
+        AudioClip voice = voices.Dequeue();
+
+        voiceSound.clip = voice;
+        voiceSound.Play();
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
@@ -89,7 +108,8 @@ public class DialoguesManager : MonoBehaviour {
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            bipSound.Play();
+            yield return new WaitForSeconds(0.03f);
         }
     }
 
@@ -99,5 +119,6 @@ public class DialoguesManager : MonoBehaviour {
 
         // Active le mode cinema
         cine.QuitCineMode();
+        bipSound.Stop();
     }
 }

@@ -14,9 +14,17 @@ MonoBehaviour:
   name: Mentor
   sentences:
   - Bienvenue chez les "Black Lives Club".
-  - "Nous devons d\xE9fendre notre communaut\xE9 contre lla violence des \"Autre Gang\"."
+  - "Nous devons d\xE9fendre notre communaut\xE9 contre lla violence des \n\"Autre
+    Gang\"."
   - Avant de devenir un membre permanent des BLACK, tu vas devoir prouver ta valeur.
   - Place le plus d'affiches possible dans cette rue.
   - Attends ! Selon nos informations, une patrouille de police devrait arriver d'ici
     2 minutes.
   - "Monte dans la voiture quand tu es pr\xEAt."
+  voices:
+  - {fileID: 8300000, guid: 1a7e8f04fe66d704e9b45b3dada6ea82, type: 3}
+  - {fileID: 8300000, guid: 84c173997e83f4a4fabe1c41ed81e236, type: 3}
+  - {fileID: 8300000, guid: 2e57bbe73d057e34e8a50c3e1ffa213a, type: 3}
+  - {fileID: 8300000, guid: 2e57bbe73d057e34e8a50c3e1ffa213a, type: 3}
+  - {fileID: 8300000, guid: eca7a3afc867f0141a137a648ba28d41, type: 3}
+  - {fileID: 8300000, guid: 007273dd1b686e94db82dfdb439c198e, type: 3}
