@@ -74,7 +74,7 @@ public class DialoguesManager : MonoBehaviour {
             sentences.Enqueue(sentence);
         }
 
-        foreach (AudioClip voice in voices)
+        foreach (AudioClip voice in dialogue.voices)
         {
             voices.Enqueue(voice);
         }
@@ -92,8 +92,14 @@ public class DialoguesManager : MonoBehaviour {
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        //if (voices.Count == 0)
+        //{
+        //    EndDialogue();
+        //    return;
+        //}
+
         AudioClip voice = voices.Dequeue();
+        string sentence = sentences.Dequeue();
 
         voiceSound.clip = voice;
         voiceSound.Play();

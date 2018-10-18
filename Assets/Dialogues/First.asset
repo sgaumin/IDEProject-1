@@ -24,7 +24,7 @@ MonoBehaviour:
   voices:
   - {fileID: 8300000, guid: 1a7e8f04fe66d704e9b45b3dada6ea82, type: 3}
   - {fileID: 8300000, guid: 84c173997e83f4a4fabe1c41ed81e236, type: 3}
-  - {fileID: 8300000, guid: 2e57bbe73d057e34e8a50c3e1ffa213a, type: 3}
+  - {fileID: 0}
   - {fileID: 8300000, guid: 2e57bbe73d057e34e8a50c3e1ffa213a, type: 3}
   - {fileID: 8300000, guid: eca7a3afc867f0141a137a648ba28d41, type: 3}
   - {fileID: 8300000, guid: 007273dd1b686e94db82dfdb439c198e, type: 3}
